@@ -1,1 +1,17 @@
+pipeline {
+    agent any
 
+    stages {
+        stage('clone repo') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'gitCred',usernameVariable: 'miirko99', passwordVariable: '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')]) {
+                sh'''
+                rm -rf JavaExceptions
+                git clone https://github.com/miirko99/JavaExceptions 
+                echo $(cat JavaExceptions/README.md)
+                '''
+                }
+            }
+        }
+    }
+}
