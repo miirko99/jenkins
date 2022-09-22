@@ -2,10 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('clone repo') {
+        stage('Hello') {
             steps {
-                echo "Hello world!"
-                }
+                sh'''
+                export a="hello world!"
+                echo $a'''
             }
         }
     }
